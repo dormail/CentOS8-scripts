@@ -25,7 +25,8 @@ dnf install -y \
 	php-zip \
 	php-pdo_mysql \
 	php-intl \
-	redis
+	redis \
+	nginx
 
 # for the caching module redis we need to instsall remi repo which we get through the epel repo
 # here I used php 7.4
@@ -44,13 +45,14 @@ systemctl enable mariadb.service
 systemctl start mariadb.service
 mysql_secure_installation
 
+# nginx web server
+# I added the nginx file to the git repo because I am to lazy to write to file 
+# through a bash script
+# in the nginx.conf file you need to adjust server name, webroot (if needed) and ssl
+# settings
+mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+cp nginx.conf /etc/nginx/nginx.conf
 
-
-# we will use nginx 
-# since we have an extra subdomain we put it in the webroot of this nginx server
-# and we will copy the file since I am to lazy to work with bash scripting
-sudo systemctl enable php-fpm.service
-sudo systemctl start php-fpm.service
 
 # redis
 systemctl enable redis.service
