@@ -49,3 +49,9 @@ mysql_secure_installation
 # we will use nginx 
 # since we have an extra subdomain we put it in the webroot of this nginx server
 # and we will copy the file since I am to lazy to work with bash scripting
+sudo systemctl enable php-fpm.service
+sudo systemctl start php-fpm.service
+
+# redis
+systemctl enable redis.service
+systemctl start redis.service
