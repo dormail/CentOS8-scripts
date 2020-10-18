@@ -5,8 +5,18 @@
 # those are the ones that are either necessary or boost the performance
 # if you need to do some fancy stuff maybe some other php packages are needed, read
 # https://docs.nextcloud.com/server/20/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation
-yum update
-yum install -y php \
+dnf update -y
+dnf install -y \
+	epel-release \
+	yum-utils \
+	unzip \
+	curl \
+	wget \
+	bash-completion \
+	policycoreutils-python-utils \
+	mlocate \
+	bzip2 \
+	php \
 	php-dom \
 	php-gd \
 	php-json \
@@ -18,16 +28,23 @@ yum install -y php \
 	redis
 
 # for the caching module redis we need to instsall remi repo which we get through the epel repo
-# php 7.2 was the version cent os gave me so I went with it - ADJUST TO YOUR NEEDS
-yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-yum -y update
-yum -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-yum -y update
+# here I used php 7.4
+dnf -y update
+dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf -y update
 
-yum -y module reset php
-yum -y module enable php:remi-7.2
+dnf -y module reset php
+dnf -y module enable php:remi-7.4
 
-yum install -y php-pecl-redis
+dnf install -y php-pecl-redis
+
+# setting up database
+dnf install -y mariadb mariadb-server
+systemctl enable mariadb.service
+systemctl start mariadb.service
+mysql_secure_installation
+
+
 
 # we will use nginx 
 # since we have an extra subdomain we put it in the webroot of this nginx server
