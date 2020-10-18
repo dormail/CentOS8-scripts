@@ -24,7 +24,7 @@ yum -y update
 yum -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 yum -y update
 
-yum -y module reset enable php:remi-7.2
+yum -y module reset php
 yum -y module enable php:remi-7.2
 
 yum search php-pecl-redis
