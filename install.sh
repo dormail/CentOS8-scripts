@@ -26,7 +26,7 @@ dnf install -y \
 	php-pdo_mysql \
 	php-intl \
 	redis \
-	nginx
+	httpd
 
 # for the caching module redis we need to instsall remi repo which we get through the epel repo
 # here I used php 7.4
@@ -43,9 +43,17 @@ dnf install -y php-pecl-redis
 dnf install -y mariadb mariadb-server
 systemctl enable mariadb.service
 systemctl start mariadb.service
-mysql_secure_installation
+# for a secure installation run
+# mysql_secure_installation
+# and type in all the stuff, for more info read 
+# https://docs.nextcloud.com/server/20/admin_manual/installation/example_centos.html
 
-# nginx web server
+# apache webserver
+systemctl enable httpd
+ststemctl start httpd
+# certbot for ssl
+curl -O https://dl.eff.org/certbot-auto
+
 # I added the nginx file to the git repo because I am to lazy to write to file 
 # through a bash script
 # in the nginx.conf file you need to adjust server name, webroot (if needed) and ssl
