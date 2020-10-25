@@ -43,24 +43,12 @@ dnf install -y php-pecl-redis
 dnf install -y mariadb mariadb-server
 systemctl enable mariadb.service
 systemctl start mariadb.service
-# for a secure installation run
-# mysql_secure_installation
 # and type in all the stuff, for more info read 
 # https://docs.nextcloud.com/server/20/admin_manual/installation/example_centos.html
 
 # apache webserver
 systemctl enable httpd
 ststemctl start httpd
-# certbot for ssl
-curl -O https://dl.eff.org/certbot-auto
-
-# I added the nginx file to the git repo because I am to lazy to write to file 
-# through a bash script
-# in the nginx.conf file you need to adjust server name, webroot (if needed) and ssl
-# settings
-mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
-cp nginx.conf /etc/nginx/nginx.conf
-
 
 # redis
 systemctl enable redis.service
