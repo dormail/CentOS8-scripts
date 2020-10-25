@@ -14,3 +14,8 @@ systemctl start httpd
 # redis
 systemctl enable redis.service
 systemctl start redis.service
+
+# download and copy nc files to the webroot
+wget https://download.nextcloud.com/server/releases/nextcloud-20.0.0.zip
+unzip nextcloud-20.0.0.zip
+cp -r nextcloud/ /var/www/html/
