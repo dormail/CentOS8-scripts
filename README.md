@@ -1,2 +1,5 @@
-# Nextcloud-CentOS8
-An install script for nextcloud on Cent OS 8 servers
+# CentOS8-scripts
+Scripts I use to set up a CentOS 8 server
+
+## Stuff added:
+* fail2ban
