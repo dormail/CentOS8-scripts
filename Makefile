@@ -9,6 +9,6 @@ nextcloud:
 	bash nextcloud/install.sh
 
 clear:
-	rm -rf nextcloud/nextcloud-20.0.0.zip
+	rm -rf nextcloud/nextcloud-20.0.0.zip nextcloud-*
 
 .PHONY: fail2ban nextcloud clear
