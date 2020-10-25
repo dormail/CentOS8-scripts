@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Downloads
-yum update
-yum install epel-release
-yum install fail2ban
+yum -y update
+yum -y install epel-release
+yum -y install fail2ban
 
 
 # Activating fail2ban
