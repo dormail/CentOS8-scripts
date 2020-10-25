@@ -7,10 +7,6 @@ systemctl start mariadb.service
 # and type in all the stuff, for more info read 
 # https://docs.nextcloud.com/server/20/admin_manual/installation/example_centos.html
 
-# apache webserver
-systemctl enable httpd
-systemctl start httpd
-
 # redis
 systemctl enable redis.service
 systemctl start redis.service
@@ -25,3 +21,10 @@ echo 'Copied nextcloud files to /var/www/html/nextcloud'
 
 # copy nextcloud.conf to the apache directory
 cp nextcloud.conf /etc/httpd/conf.d/
+
+# chowning the webroot
+chown -R apache:apache /var/www/html/nextcloud/
+
+# apache webserver
+systemctl enable httpd
+systemctl start httpd
