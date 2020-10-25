@@ -19,3 +19,4 @@ systemctl start redis.service
 wget https://download.nextcloud.com/server/releases/nextcloud-20.0.0.zip
 unzip nextcloud-20.0.0.zip
 cp -r nextcloud/ /var/www/html/
+echo 'Copied nextcloud files to /var/www/html/nextcloud'
