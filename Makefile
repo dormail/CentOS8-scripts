@@ -6,3 +6,5 @@ fail2ban:
 nextcloud:
 	bash nextcloud/download.sh
 	bash nextcloud/install.sh
+
+.PHONY: fail2ban nextcloud
