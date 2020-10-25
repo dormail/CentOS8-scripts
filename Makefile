@@ -4,6 +4,7 @@ fail2ban:
 	bash fail2ban/fail2ban.sh
 
 nextcloud:
+	rm -rf /var/www/html/nextcloud
 	bash nextcloud/download.sh
 	bash nextcloud/install.sh
 
