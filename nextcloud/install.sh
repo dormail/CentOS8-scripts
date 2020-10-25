@@ -9,7 +9,7 @@ systemctl start mariadb.service
 
 # apache webserver
 systemctl enable httpd
-ststemctl start httpd
+systemctl start httpd
 
 # redis
 systemctl enable redis.service
