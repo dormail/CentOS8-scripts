@@ -18,5 +18,6 @@ systemctl start redis.service
 # download and copy nc files to the webroot
 wget https://download.nextcloud.com/server/releases/nextcloud-20.0.0.zip
 unzip nextcloud-20.0.0.zip
+echo 'Copying nextcloud files to the webroot (/var/www/html/nextcloud)'
 cp -r nextcloud/ /var/www/html/
 echo 'Copied nextcloud files to /var/www/html/nextcloud'
