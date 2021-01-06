@@ -1,9 +1,10 @@
 [DEFAULT] 
-bantime  = 21600
-findtime  = 300
-maxretry = 3
-banaction = iptables-multiport
-backend = systemd
+bantime		= 21600
+findtime	= 300
+maxretry	= 3
+banaction 	= iptables-multiport
+backend		= systemd
 
 [sshd] 
-enabled = true
+mode		= aggressive
+enabled 	= true
