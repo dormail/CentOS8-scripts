@@ -45,3 +45,16 @@ a2enmod dir
 a2enmod mime
 
 systemctl restart apache2
+
+# mariadb
+systemctl enable mariadb.service
+systemctl start mariadb.service
+# now admin needs to add a database
+
+# nextcloud download and initial setup
+wget https://download.nextcloud.com/server/releases/nextcloud-20.0.4.zip
+unzip nextcloud-20.0.4.zip
+cp nextcloud /var/www/html/
+mkdir -p /var/www/html/nextcloud/data
+chown -R www-data:www-data /var/www/html/nextcloud
+systemctl restart apache2
