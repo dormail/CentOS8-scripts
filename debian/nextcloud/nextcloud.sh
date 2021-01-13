@@ -38,3 +38,10 @@ apt install -y \
 # copy apache site config
 cp ./nextcloud.conf /etc/apache2/sites-available/nextcloud.conf
 
+# apache config
+a2enmod rewrite
+a2enmod env
+a2enmod dir
+a2enmod mime
+
+systemctl restart apache2
