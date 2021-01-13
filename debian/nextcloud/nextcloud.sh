@@ -1,10 +1,9 @@
 #!/bin/bash
-# this install uses mariadb as a database
-# right now there is no extra caching implemented
+# classical lamp stack
 
 apt update -y
 
-# php modules
+# packages
 apt install -y \
 	php-ctype \
 	php-curl \
@@ -33,7 +32,8 @@ apt install -y \
 	php-imagick \
 	ffmpeg \
 	libreoffice \
-	apache2
+	apache2 \
+	mariadb-server
 
 # copy apache site config
 cp ./nextcloud.conf /etc/apache2/sites-available/nextcloud.conf
